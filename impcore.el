@@ -3,8 +3,8 @@
 (require 'scheme)
 
 ;; define keywords groups
-(setq impcore-keywords '("define" "val"))
-(setq impcore-functions '())
+(setq impcore-keywords '("define" "val" "set" "if" "while" "begin" "use"))
+(setq impcore-functions '("+" "-" "*" "/" "<" ">" "=" "print" "and" "or" "not" "<=" ">=" "!=" "mod"))
 
 
 ;; create regex string for keyword groups
@@ -24,5 +24,7 @@
 (define-derived-mode impcore-mode scheme-mode "Impcore"
   "Major mode for editing Impcore files"
   (setq font-lock-defaults '((impcore-font-lock-keywords))))
+
+(add-to-list 'auto-mode-alist '("\\.ic\\'" . impcore-mode))
 
 (provide 'impcore-mode)
